@@ -1,0 +1,87 @@
+<ngx-spinner
+  bdColor= "rgba(151,149,149,0.4)"
+  size="large"
+  color="black"
+  type="ball-clip-rotate-pulse"
+  fullScreen="true"
+>
+  <p style="font-size: 20px; color: black">Please Wait ... </p>
+</ngx-spinner>
+
+<div class="content-wrapper">
+
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>All Products</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">General Form</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+
+  <section class="content">
+
+    <div class="container-fluid" *ngIf="products">
+      <div class="row">
+        <!-- <div class="col-12">
+          <div class="alert alert-danger" [hidden]="!hasError">
+            {{ errorMessage }}
+          </div>
+          <div class="alert alert-success" [hidden]="!success">
+            {{ errorMessage }}
+          </div>
+        </div> -->
+        <div class="col">
+          <table class="table table-bordered">
+            <thead class="bg-dark text-light">
+            <tr>
+              <th>Id</th>
+              <th width="20%">Name</th>
+              <th width="40%">Description</th>
+              <th>Price</th>
+              <th>Category</th>
+              <th>Quantity</th>
+              <th>Operation</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr *ngFor="let p of products">
+              <td>{{ p.id }}</td>
+              <td>{{ p.title }}</td>
+              <td>{{ p.description }}</td>
+              <td>{{ p.price | currency:'INR' }}</td>
+              <td>{{ p.category }}</td>
+              <td>{{ p.quantity }}</td>
+              <td>
+                <button class="btn btn-sm btn-danger btn-block" (click)="onDeleteProduct(p.id)">Delete</button>
+                <button class="btn btn-sm btn-primary mt-2 btn-block" (click)="onEditProduct(p.id)">Edit</button>
+
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+
+
+
+
+    </div>
+
+
+  </section>
+
+
+
+</div>
